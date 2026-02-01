@@ -1,87 +1,94 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Father's Birthday Celebration</title>
+
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #00008B; /* Dark blue background */
-            color: #ffffff; /* White text for contrast */
+            background-color: #00008B;
+            color: #ffffff;
             text-align: center;
             margin: 0;
             padding: 20px;
         }
+
         h1, h2, h3 {
-            color: #FFD700; /* Gold color for headings */
+            color: #FFD700;
         }
+
         .countdown {
             font-size: 2em;
             margin: 20px 0;
-            color: #FF6347; /* Tomato color for countdown */
-        }
-        .card {
-            max-width: 600px;
-            margin: 20px auto;
-            padding: 20px;
-            border: 2px solid #FFD700; /* Gold border */
-            border-radius: 10px;
-            background-color: #1e90ff; /* Dodger blue for cards */
-            box-shadow: 0 4px 8px rgba(0,0,0,0.5);
-            color: #ffffff;
-        }
-        .hint {
-            margin-top: 30px;
-            font-style: italic;
-            color: #FFD700;
-        }
-        .hint strong {
             color: #FF6347;
         }
+
+        .card {
+            max-width: 700px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 2px solid #FFD700;
+            border-radius: 10px;
+            background-color: #1e90ff;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+        }
+
         button {
-            background-color: #FFD700; /* Gold buttons */
-            color: #00008B; /* Dark blue text */
+            background-color: #FFD700;
+            color: #00008B;
             border: none;
             padding: 10px 20px;
             margin: 10px;
             border-radius: 5px;
             cursor: pointer;
             font-size: 1em;
-            transition: background-color 0.3s;
         }
+
         button:hover {
-            background-color: #FF6347; /* Tomato on hover */
+            background-color: #FF6347;
         }
+
         .section {
             margin: 40px 0;
         }
+
         .gallery {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
         }
+
         .gallery img {
-            width: 200px;
-            height: 150px;
+            width: 220px;
+            height: 180px;
             margin: 10px;
-            border-radius: 10px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+            border-radius: 12px;
+            object-fit: cover;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.6);
+            transition: transform 0.3s;
         }
-        .music-player {
-            margin: 20px 0;
+
+        .gallery img:hover {
+            transform: scale(1.05);
         }
+
         .quiz {
             max-width: 600px;
             margin: 20px auto;
             padding: 20px;
             background-color: #1e90ff;
             border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.5);
         }
-        .quiz button {
-            margin: 5px;
+
+        .hint {
+            margin-top: 30px;
+            font-style: italic;
+            color: #FFD700;
         }
+
         .confetti {
             position: fixed;
             top: 0;
@@ -93,52 +100,59 @@
         }
     </style>
 </head>
+
 <body>
-    <h1>Happy Birthday, Dad!</h1>
-    <p>Get ready to celebrate! Here's a special page just for you.</p>
+
+    <h1>🎉 Happy Birthday, Dad! 🎉</h1>
+    <p>A celebration filled with love, memories, and gratitude ❤️</p>
 
     <div class="countdown">
         <h2>Countdown to February 2nd</h2>
-        <div id="countdown-timer">Calculating...</div>
+        <div id="countdown-timer">Loading...</div>
     </div>
 
     <div class="section">
-        <button onclick="playMusic()">Play Birthday Music</button>
-        <button onclick="showConfetti()">Add Confetti</button>
-        <button onclick="scrollToGallery()">View Photo Gallery</button>
-        <button onclick="scrollToQuiz()">Take a Fun Quiz</button>
+        <button onclick="playMusic()">▶ Play Birthday Music</button>
+        <button onclick="showConfetti()">🎊 Add Confetti</button>
+        <button onclick="scrollToGallery()">📸 View Memories</button>
+        <button onclick="scrollToQuiz()">❓ Fun Quiz</button>
     </div>
 
     <div class="card">
-        <h2>A Special Message</h2>
+        <h2>A Message From the Heart</h2>
         <p>Dear Dad,</p>
-        <p>On this special day, I want to say how much you mean to me. You've always been there with your wisdom, love, and endless support. Thank you for being the best father anyone could ask for. Wishing you a birthday filled with joy, laughter, and all the things that make you happy. I love you!</p>
-        <p>Happy Birthday!</p>
-        <p>From [Your Name]</p>
+        <p>
+            Thank you for always being our strength, our guide, and our biggest supporter.
+            Your love and sacrifices mean the world to us.
+            May this birthday bring you peace, joy, good health, and endless happiness.
+        </p>
+        <p><strong>Happy Birthday!</strong></p>
+        <p>— With love, Your Family ❤️</p>
     </div>
 
+    <!-- PHOTO GALLERY -->
     <div class="section" id="gallery">
-        <h2>Photo Gallery</h2>
+        <h2>📸 Beautiful Memories</h2>
         <div class="gallery">
-            <!-- Replace with actual image URLs or paths -->
-            <img src="https://via.placeholder.com/200x150/FFD700/000000?text=Family+Photo+1" alt="Family Photo 1">
-            <img src="https://via.placeholder.com/200x150/FFD700/000000?text=Family+Photo+2" alt="Family Photo 2">
-            <img src="https://via.placeholder.com/200x150/FFD700/000000?text=Family+Photo+3" alt="Family Photo 3">
-            <img src="https://via.placeholder.com/200x150/FFD700/000000?text=Family+Photo+4" alt="Family Photo 4">
+            <img src="photo1.jpg" alt="Family Memory 1">
+            <img src="photo2.jpg" alt="Family Memory 2">
+            <img src="photo3.jpg" alt="Family Memory 3">
+            <img src="photo4.jpg" alt="Family Memory 4">
+            <img src="photo5.jpg" alt="Family Memory 5">
         </div>
     </div>
 
-    <div class="music-player">
-        <h2>Birthday Tune</h2>
+    <div class="section">
+        <h2>🎶 Birthday Music</h2>
         <audio id="birthday-music" controls>
-            <source src="https://www.soundjay.com/misc/sounds/happy-birthday-song-01.wav" type="audio/wav">
-            Your browser does not support the audio element.
+            <source src="https://cdn.pixabay.com/audio/2022/03/15/audio_6c7e4f1b1a.mp3" type="audio/mpeg">
+            Your browser does not support audio.
         </audio>
     </div>
 
     <div class="quiz" id="quiz">
-        <h2>Fun Birthday Quiz</h2>
-        <p>What is Dad's favorite color?</p>
+        <h2>🎂 Fun Birthday Quiz</h2>
+        <p>What is Dad’s favorite color?</p>
         <button onclick="checkAnswer('blue')">Blue</button>
         <button onclick="checkAnswer('red')">Red</button>
         <button onclick="checkAnswer('green')">Green</button>
@@ -146,73 +160,75 @@
     </div>
 
     <div class="hint">
-        <h3>Gift Hint</h3>
-        <p><strong>Your gift is near where we sit and where we keep things.</strong></p>
-        <p>Think about it... it's close by!</p>
+        <h3>🎁 Gift Hint</h3>
+        <p><strong>Your gift is close to where we sit and keep important things.</strong></p>
     </div>
 
     <div class="confetti" id="confetti-container"></div>
 
     <script>
         function updateCountdown() {
-            const targetDate = new Date('February 2, 2025 00:00:00').getTime(); // Adjust year if needed
+            const targetDate = new Date("February 2, 2026 00:00:00").getTime();
             const now = new Date().getTime();
-            const timeLeft = targetDate - now;
+            const diff = targetDate - now;
 
-            if (timeLeft > 0) {
-                const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+            if (diff > 0) {
+                const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+                const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
+                const m = Math.floor((diff / (1000 * 60)) % 60);
+                const s = Math.floor((diff / 1000) % 60);
 
-                document.getElementById('countdown-timer').innerHTML = 
-                    `${days} days, ${hours} hours, ${minutes} minutes, ${seconds} seconds`;
+                document.getElementById("countdown-timer").innerText =
+                    `${d} days, ${h} hours, ${m} minutes, ${s} seconds`;
             } else {
-                document.getElementById('countdown-timer').innerHTML = "It's time! Happy Birthday!";
+                document.getElementById("countdown-timer").innerText =
+                    "🎂 Happy Birthday Dad! 🎂";
             }
         }
 
         setInterval(updateCountdown, 1000);
-        updateCountdown(); // Initial call
+        updateCountdown();
 
         function playMusic() {
-            const audio = document.getElementById('birthday-music');
-            audio.play();
+            document.getElementById("birthday-music").play();
         }
 
-        function showConfetti() {
-            const container = document.getElementById('confetti-container');
-            for (let i = 0; i < 100; i++) {
-                const confetti = document.createElement('div');
-                confetti.style.position = 'absolute';
-                confetti.style.width = '10px';
-                confetti.style.height = '10px';
-                confetti.style.backgroundColor = ['#FFD700', '#FF6347', '#1e90ff'][Math.floor(Math.random() * 3)];
-                confetti.style.left = Math.random() * 100 + '%';
-                confetti.style.animation = `fall ${Math.random() * 3 + 2}s linear infinite`;
-                container.appendChild(confetti);
+        function checkAnswer(answer) {
+            const result = document.getElementById("quiz-result");
+            if (answer === "blue") {
+                result.innerHTML = "<p style='color:#FFD700;'>Correct! 🎉</p>";
+            } else {
+                result.innerHTML = "<p style='color:#FF6347;'>Try again 😄</p>";
             }
         }
 
         function scrollToGallery() {
-            document.getElementById('gallery').scrollIntoView({ behavior: 'smooth' });
+            document.getElementById("gallery").scrollIntoView({ behavior: "smooth" });
         }
 
         function scrollToQuiz() {
-            document.getElementById('quiz').scrollIntoView({ behavior: 'smooth' });
+            document.getElementById("quiz").scrollIntoView({ behavior: "smooth" });
         }
 
-        function checkAnswer(answer) {
-            const result = document.getElementById('quiz-result');
-            if (answer === 'blue') { // Assuming blue is correct; change as needed
-                result.innerHTML = '<p style="color: #FFD700;">Correct! You know Dad well!</p>';
-            } else {
-                result.innerHTML = '<p style="color: #FF6347;">Oops, try again!</p>';
+        function showConfetti() {
+            const container = document.getElementById("confetti-container");
+            container.innerHTML = "";
+
+            for (let i = 0; i < 120; i++) {
+                const confetti = document.createElement("div");
+                confetti.style.position = "absolute";
+                confetti.style.width = "10px";
+                confetti.style.height = "10px";
+                confetti.style.backgroundColor =
+                    ["#FFD700", "#FF6347", "#1e90ff"][Math.floor(Math.random() * 3)];
+                confetti.style.left = Math.random() * 100 + "%";
+                confetti.style.top = "-10px";
+                confetti.style.animation = "fall 3s linear infinite";
+                container.appendChild(confetti);
             }
         }
 
-        // Add CSS animation for confetti
-        const style = document.createElement('style');
+        const style = document.createElement("style");
         style.innerHTML = `
             @keyframes fall {
                 to {
@@ -223,5 +239,6 @@
         `;
         document.head.appendChild(style);
     </script>
+
 </body>
 </html>
