@@ -3,74 +3,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Love for Dad</title>
+    <title>Father's Birthday Celebration</title>
     <style>
         body {
             font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            color: #333;
             text-align: center;
-            background: linear-gradient(45deg, #ff69b4, #ff1493, #dc143c, #ff6347, #ffa500);
-            color: white;
             margin: 0;
-            padding: 0;
-            overflow-x: hidden;
-        }
-        .hearts {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
-        }
-        .heart {
-            position: absolute;
-            font-size: 2rem;
-            animation: float 6s infinite linear;
-        }
-        @keyframes float {
-            0% { transform: translateY(100vh) rotate(0deg); }
-            100% { transform: translateY(-100vh) rotate(360deg); }
+            padding: 20px;
         }
         h1 {
-            font-size: 3rem;
-            margin-top: 20%;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            color: #007bff;
         }
-        p {
-            font-size: 1.5rem;
-            margin: 20px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        .countdown {
+            font-size: 2em;
+            margin: 20px 0;
+            color: #ff4500;
         }
-        .message {
-            background: rgba(255, 255, 255, 0.2);
-            padding: 20px;
-            border-radius: 10px;
-            margin: 20px auto;
+        .card {
             max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 2px solid #007bff;
+            border-radius: 10px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .card h2 {
+            color: #007bff;
+        }
+        .hint {
+            margin-top: 30px;
+            font-style: italic;
+            color: #555;
+        }
+        .hint strong {
+            color: #007bff;
         }
     </style>
 </head>
 <body>
-    <div class="hearts" id="hearts"></div>
-    <h1>❤️ I Love You, Dad! ❤️</h1>
-    <div class="message">
-        <p>Dad, you mean the world to me. I love you more than words can say! 💖</p>
-        <p>My heart will run only for you and Mom. Forever and always. 🌈❤️</p>
-        <p>With all my love, Manuraj. 💕</p>
+    <h1>Happy Birthday, Dad!</h1>
+    <p>Get ready to celebrate! Here's a special page just for you.</p>
+
+    <div class="countdown">
+        <h2>Countdown to February 2nd</h2>
+        <div id="countdown-timer">Calculating...</div>
+    </div>
+
+    <div class="card">
+        <h2>A Special Message</h2>
+        <p>Dear Dad,</p>
+        <p>On this special day, I want to say how much you mean to me. You've always been there with your wisdom, love, and endless support. Thank you for being the best father anyone could ask for. Wishing you a birthday filled with joy, laughter, and all the things that make you happy. I love you!</p>
+        <p>Happy Birthday!</p>
+        <p>From [Your Name]</p>
+    </div>
+
+    <div class="hint">
+        <h3>Gift Hint</h3>
+        <p><strong>Your gift is near where we sit and where we keep things.</strong></p>
+        <p>Think about it... it's close by!</p>
     </div>
 
     <script>
-        const heartsContainer = document.getElementById('hearts');
-        for (let i = 0; i < 50; i++) {
-            const heart = document.createElement('div');
-            heart.className = 'heart';
-            heart.innerHTML = '❤️';
-            heart.style.left = Math.random() * 100 + '%';
-            heart.style.animationDelay = Math.random() * 6 + 's';
-            heartsContainer.appendChild(heart);
+        function updateCountdown() {
+            const targetDate = new Date('February 2, 2025 00:00:00').getTime(); // Adjust year if needed
+            const now = new Date().getTime();
+            const timeLeft = targetDate - now;
+
+            if (timeLeft > 0) {
+                const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+                document.getElementById('countdown-timer').innerHTML = 
+                    `${days} days, ${hours} hours, ${minutes} minutes, ${seconds} seconds`;
+            } else {
+                document.getElementById('countdown-timer').innerHTML = "It's time! Happy Birthday!";
+            }
         }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown(); // Initial call
     </script>
 </body>
 </html>
-
