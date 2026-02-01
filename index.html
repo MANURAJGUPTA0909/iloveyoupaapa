@@ -7,39 +7,89 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f0f8ff;
-            color: #333;
+            background-color: #00008B; /* Dark blue background */
+            color: #ffffff; /* White text for contrast */
             text-align: center;
             margin: 0;
             padding: 20px;
         }
-        h1 {
-            color: #007bff;
+        h1, h2, h3 {
+            color: #FFD700; /* Gold color for headings */
         }
         .countdown {
             font-size: 2em;
             margin: 20px 0;
-            color: #ff4500;
+            color: #FF6347; /* Tomato color for countdown */
         }
         .card {
             max-width: 600px;
             margin: 20px auto;
             padding: 20px;
-            border: 2px solid #007bff;
+            border: 2px solid #FFD700; /* Gold border */
             border-radius: 10px;
-            background-color: #fff;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        }
-        .card h2 {
-            color: #007bff;
+            background-color: #1e90ff; /* Dodger blue for cards */
+            box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+            color: #ffffff;
         }
         .hint {
             margin-top: 30px;
             font-style: italic;
-            color: #555;
+            color: #FFD700;
         }
         .hint strong {
-            color: #007bff;
+            color: #FF6347;
+        }
+        button {
+            background-color: #FFD700; /* Gold buttons */
+            color: #00008B; /* Dark blue text */
+            border: none;
+            padding: 10px 20px;
+            margin: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #FF6347; /* Tomato on hover */
+        }
+        .section {
+            margin: 40px 0;
+        }
+        .gallery {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .gallery img {
+            width: 200px;
+            height: 150px;
+            margin: 10px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+        .music-player {
+            margin: 20px 0;
+        }
+        .quiz {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #1e90ff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+        }
+        .quiz button {
+            margin: 5px;
+        }
+        .confetti {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
         }
     </style>
 </head>
@@ -52,6 +102,13 @@
         <div id="countdown-timer">Calculating...</div>
     </div>
 
+    <div class="section">
+        <button onclick="playMusic()">Play Birthday Music</button>
+        <button onclick="showConfetti()">Add Confetti</button>
+        <button onclick="scrollToGallery()">View Photo Gallery</button>
+        <button onclick="scrollToQuiz()">Take a Fun Quiz</button>
+    </div>
+
     <div class="card">
         <h2>A Special Message</h2>
         <p>Dear Dad,</p>
@@ -60,11 +117,41 @@
         <p>From [Your Name]</p>
     </div>
 
+    <div class="section" id="gallery">
+        <h2>Photo Gallery</h2>
+        <div class="gallery">
+            <!-- Replace with actual image URLs or paths -->
+            <img src="https://via.placeholder.com/200x150/FFD700/000000?text=Family+Photo+1" alt="Family Photo 1">
+            <img src="https://via.placeholder.com/200x150/FFD700/000000?text=Family+Photo+2" alt="Family Photo 2">
+            <img src="https://via.placeholder.com/200x150/FFD700/000000?text=Family+Photo+3" alt="Family Photo 3">
+            <img src="https://via.placeholder.com/200x150/FFD700/000000?text=Family+Photo+4" alt="Family Photo 4">
+        </div>
+    </div>
+
+    <div class="music-player">
+        <h2>Birthday Tune</h2>
+        <audio id="birthday-music" controls>
+            <source src="https://www.soundjay.com/misc/sounds/bell-ringing-05.wav" type="audio/wav"> <!-- Placeholder; replace with a real birthday song URL -->
+            Your browser does not support the audio element.
+        </audio>
+    </div>
+
+    <div class="quiz" id="quiz">
+        <h2>Fun Birthday Quiz</h2>
+        <p>What is Dad's favorite color?</p>
+        <button onclick="checkAnswer('blue')">Blue</button>
+        <button onclick="checkAnswer('red')">Red</button>
+        <button onclick="checkAnswer('green')">Green</button>
+        <div id="quiz-result"></div>
+    </div>
+
     <div class="hint">
         <h3>Gift Hint</h3>
         <p><strong>Your gift is near where we sit and where we keep things.</strong></p>
         <p>Think about it... it's close by!</p>
     </div>
+
+    <div class="confetti" id="confetti-container"></div>
 
     <script>
         function updateCountdown() {
@@ -87,6 +174,54 @@
 
         setInterval(updateCountdown, 1000);
         updateCountdown(); // Initial call
+
+        function playMusic() {
+            const audio = document.getElementById('birthday-music');
+            audio.play();
+        }
+
+        function showConfetti() {
+            const container = document.getElementById('confetti-container');
+            for (let i = 0; i < 100; i++) {
+                const confetti = document.createElement('div');
+                confetti.style.position = 'absolute';
+                confetti.style.width = '10px';
+                confetti.style.height = '10px';
+                confetti.style.backgroundColor = ['#FFD700', '#FF6347', '#1e90ff'][Math.floor(Math.random() * 3)];
+                confetti.style.left = Math.random() * 100 + '%';
+                confetti.style.animation = `fall ${Math.random() * 3 + 2}s linear infinite`;
+                container.appendChild(confetti);
+            }
+        }
+
+        function scrollToGallery() {
+            document.getElementById('gallery').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function scrollToQuiz() {
+            document.getElementById('quiz').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function checkAnswer(answer) {
+            const result = document.getElementById('quiz-result');
+            if (answer === 'blue') { // Assuming blue is correct; change as needed
+                result.innerHTML = '<p style="color: #FFD700;">Correct! You know Dad well!</p>';
+            } else {
+                result.innerHTML = '<p style="color: #FF6347;">Oops, try again!</p>';
+            }
+        }
+
+        // Add CSS animation for confetti
+        const style = document.createElement('style');
+        style.innerHTML = `
+            @keyframes fall {
+                to {
+                    transform: translateY(100vh);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
     </script>
 </body>
 </html>
